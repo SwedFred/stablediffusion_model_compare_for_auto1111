@@ -244,12 +244,12 @@ class Script(scripts.Script):
         z_valuez = ''
         dirpath = os.path.join(models_path, 'Stable-diffusion')
         for path in os.listdir(dirpath):
-            if path.endswith('.ckpt'):
+            if path.endswith('.ckpt') or path.endswith('.safetensors'):
                 filenames.append(path)
             else:
                 if os.path.isdir(os.path.join(dirpath,path)):
                   for subpath in os.listdir(os.path.join(dirpath,path)):
-                    if subpath.endswith('.ckpt'):
+                    if subpath.endswith('.ckpt') or path.endswith('.safetensors'):
                       filenames.append(subpath)
             
         filenames.append('model.ckpt')
